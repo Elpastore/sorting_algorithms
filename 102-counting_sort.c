@@ -19,7 +19,6 @@ void counting_sort(int *array, size_t size)
 		if (array[i] > max)
 			max = array[i];
 	}
-	printf("max is: %d\n", max);
 	countArray = malloc(sizeof(int) * (max + 1));
 	if (countArray == NULL)
 		return;
@@ -34,8 +33,8 @@ void counting_sort(int *array, size_t size)
 	/* Step 4 update count array*/
 	for (n = 1; n < max + 1; n++)
 		countArray[n] += countArray[n - 1];
-	print_array(countArray, max + 1);
 
+	print_array(countArray, max + 1);
 	new = malloc(sizeof(int) * size);
 	if (new == NULL)
 	{
