@@ -16,20 +16,21 @@ void swap(int *x, int *y)
  * @size: size of array
  * @index: the index
  */
-void heapify(int array[], int size, int index)
+void heapify(int array[], size_t size, int index)
 {
 	int largest = index;
 	int left = (index * 2) + 1;
 	int right = (index * 2) + 2;
 
-	if (left < size && array[left] > array[largest])
+	if (left < (int)size && array[left] > array[largest])
 		largest = left;
 
-	if (right < size && array[right] > array[largest])
+	if (right < (int)size && array[right] > array[largest])
 		largest = right;
 	if (largest != index)
 	{
 		swap(&array[index], &array[largest]);
+		print_array(array, size);
 		heapify(array, size, largest);
 	}
 
