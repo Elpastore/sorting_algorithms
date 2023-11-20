@@ -17,8 +17,10 @@ void insertion_sort_list(listint_t **list)
 		{
 			if (prev->prev != NULL)
 				prev->prev->next = temp;
+
 			if (temp->next != NULL)
 				temp->next->prev = prev;
+
 			temp->prev = prev->prev;
 			prev->next = temp->next;
 			temp->next = prev;
