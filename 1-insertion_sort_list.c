@@ -7,8 +7,11 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *current, *prev, *temp;
 
+	if (list == NULL)
+		return (NULL);
+
 	current = *list;
-	while (current !=NULL)
+	while (current != NULL)
 	{
 		prev = current->prev;
 		temp = current;
@@ -28,8 +31,7 @@ void insertion_sort_list(listint_t **list)
 				*list = temp;
 
 			print_list(*list);
-			prev = temp->prev; 
-
+			prev = temp->prev;
 		}
 
 		current = current->next;
