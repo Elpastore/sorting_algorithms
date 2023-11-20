@@ -10,7 +10,7 @@ void insertion_sort_list(listint_t **list)
 	if (!*list)
 		return;
 	current = *list;
-	if (current > 2)
+	if (current < (listint_t *)2)
 		return;
 	while (current != NULL)
 	{
