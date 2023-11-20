@@ -7,11 +7,9 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *current, *prev, *temp;
 
-	if (!*list)
+	if (*list == NULL || list == NULL || (*list)->next == NULL)
 		return;
 	current = *list;
-	if (current < (listint_t *)2)
-		return;
 	while (current != NULL)
 	{
 		prev = current->prev;
