@@ -1,6 +1,6 @@
 #include "sort.h"
 /**
- * insertion_sort_list - sorts a doubly linked list of integers using insertion sort algo
+ * insertion_sort_list - sorts a doubly linked list using insertion sort algo
  * @list: pointer to the head
  */
 void insertion_sort_list(listint_t **list)
@@ -31,6 +31,7 @@ void insertion_sort_list(listint_t **list)
 				*list = temp;
 
 			print_list(*list);
+
 			prev = temp->prev;
 		}
 
