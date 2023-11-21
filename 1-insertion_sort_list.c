@@ -1,5 +1,27 @@
 #include "sort.h"
 /**
+ * swap_node - swap a two node
+ * @list: head of linked list
+ * @node: node to be swapped
+ */
+void swap_node(listint_t **list, listint_t *node)
+{
+	node->next->prev = node->prev;
+
+	if (node->prev != NULL)
+		node->prev->next = node->next;
+
+	else
+		*list = node->next;
+
+	node->prev = node->next;
+	node->next = node->next->next;
+	node->prev->next = node;
+
+	if (node->next != NULL)
+		node->next->prev = node;
+}
+/**
  * insertion_sort_list - sorts a doubly linked list using insertion sort algo
  * @list: pointer to the head
  */
@@ -17,20 +39,7 @@ void insertion_sort_list(listint_t **list)
 
 		while (prev != NULL && prev->n > temp->n)
 		{
-			if (prev->prev != NULL)
-				prev->prev->next = temp;
-
-			if (temp->next != NULL)
-				temp->next->prev = prev;
-
-			temp->prev = prev->prev;
-			prev->next = temp->next;
-			temp->next = prev;
-			prev->prev = temp;
-
-			if (temp->prev == NULL)
-				*list = temp;
-
+			swap_node(list, prev);
 			print_list(*list);
 
 			prev = temp->prev;
