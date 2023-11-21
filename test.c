@@ -1,4 +1,4 @@
-#include "sort.h"
+#include "sorted.h"
 #include <stdio.h>
 
 /**
@@ -76,4 +76,5 @@ void quick_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 	quicksort(array, 0, size - 1, size);
+
 }
